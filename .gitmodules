@@ -1,0 +1,9 @@
+[submodule "deps/haml-js"]
+	path = deps/haml-js
+	url = git://github.com/creationix/haml-js.git
+[submodule "deps/proto"]
+	path = deps/proto
+	url = git://github.com/creationix/proto.git
+[submodule "deps/node-router"]
+	path = deps/node-router
+	url = git@github.com:creationix/node-router.git
