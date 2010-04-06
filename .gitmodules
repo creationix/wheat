@@ -6,4 +6,4 @@
 	url = git://github.com/creationix/proto.git
 [submodule "deps/node-router"]
 	path = deps/node-router
-	url = git@github.com:creationix/node-router.git
+	url = git://github.com/creationix/node-router.git
