@@ -1,0 +1,15 @@
+[submodule "lib/wheat/node-git"]
+	path = lib/wheat/node-git
+	url = git://github.com/creationix/node-git.git
+[submodule "lib/wheat/step"]
+	path = lib/wheat/step
+	url = git://github.com/creationix/step.git
+[submodule "lib/wheat/haml-js"]
+	path = lib/wheat/haml-js
+	url = git://github.com/creationix/haml-js.git
+[submodule "lib/wheat/node-router"]
+	path = lib/wheat/node-router
+	url = git://github.com/creationix/node-router.git
+[submodule "lib/wheat/proto"]
+	path = lib/wheat/proto
+	url = git://github.com/creationix/proto.git
