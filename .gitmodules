@@ -10,3 +10,6 @@
 [submodule "deps/step"]
 	path = deps/step
 	url = git://github.com/creationix/step.git
+[submodule "deps/node-git"]
+	path = deps/node-git
+	url = git://github.com/creationix/node-git.git
