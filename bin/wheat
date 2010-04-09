@@ -1,0 +1,11 @@
+#!/usr/bin/env node
+// This runs a standalone server using the Wheat blogging system.
+// You will need to install it from http://github.com/creationix/wheat
+
+var Wheat = require('wheat');
+var sys = require('sys');
+var path = process.argv[2] || process.cwd();
+var port = process.argv[3] || 8080;
+var host = process.argv[4] || "127.0.0.1";
+sys.error("Starting wheat server using git repo at " + path + " on http://" + host + ":" + port);
+Wheat(path, port, host);

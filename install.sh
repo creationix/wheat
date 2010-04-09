@@ -11,6 +11,9 @@ echo "Linking current working copy into the .node_libraries folder..."
 ln -sf `pwd`/lib/wheat.js ~/.node_libraries/wheat.js
 rm ~/.node_libraries/wheat
 ln -s `pwd`/lib/wheat ~/.node_libraries/wheat
+echo "Linking wheat binary to ~/bin..."
+mkdir -p ~/bin
+ln -sf `pwd`/bin/wheat ~/bin/wheat
 echo
 echo "Done, if you delete this current working directory `pwd`, you will lose your library."
 echo "You can move it to a permanent place and re-run install if desired."
