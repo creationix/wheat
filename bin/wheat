@@ -5,7 +5,7 @@
 var Wheat = require('wheat');
 var sys = require('sys');
 var path = process.argv[2] || process.cwd();
-var port = process.argv[3] || 8080;
+var port = parseInt(process.argv[3]) || 8080;
 var host = process.argv[4] || "127.0.0.1";
 sys.error("Starting wheat server using git repo at " + path);
 Wheat(path, port, host);
