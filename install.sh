@@ -3,6 +3,9 @@ echo
 echo "Loading dependencies as git submodules..."
 git submodule init
 git submodule update
+if [ ! -n "$NODE_BIN" ]; then
+  NODE_BIN="$HOME/bin"
+fi
 if [ ! -n "$NODE_PATH" ]; then
   NODE_PATH="$HOME/.node_libraries"
 fi
@@ -18,9 +21,9 @@ if [ -d $NODE_PATH/wheat ]; then
   rm -rf $NODE_PATH/wheat
 fi
 ln -s `pwd`/lib/wheat $NODE_PATH/wheat
-echo "Linking wheat binary to ~/bin..."
-mkdir -p ~/bin
-ln -sf `pwd`/bin/wheat ~/bin/wheat
+echo "Linking wheat binary to $NODE_BIN..."
+mkdir -p $NODE_BIN
+ln -sf `pwd`/bin/wheat $NODE_BIN/wheat
 echo
 echo "Done, if you delete this current working directory `pwd`, you will lose your library."
 echo "You can move it to a permanent place and re-run install if desired."
