@@ -3,14 +3,21 @@ echo
 echo "Loading dependencies as git submodules..."
 git submodule init
 git submodule update
+if [ ! -n "$NODE_PATH" ]; then
+  NODE_PATH="$HOME/.node_libraries"
+fi
+if [ ! -d $NODE_PATH ]; then
+  echo
+  echo "Creating $NODE_PATH folder"
+  mkdir -p "$NODE_PATH"
+fi
 echo
-echo "Creating ~/.node_libraries folder if it doesn't exist yet..."
-mkdir -p ~/.node_libraries
-echo
-echo "Linking current working copy into the .node_libraries folder..."
-ln -sf `pwd`/lib/wheat.js ~/.node_libraries/wheat.js
-rm ~/.node_libraries/wheat
-ln -s `pwd`/lib/wheat ~/.node_libraries/wheat
+echo "Linking current working copy into the $NODE_PATH folder..."
+ln -sf `pwd`/lib/wheat.js $NODE_PATH/wheat.js
+if [ -d $NODE_PATH/wheat ]; then
+  rm -rf $NODE_PATH/wheat
+fi
+ln -s `pwd`/lib/wheat $NODE_PATH/wheat
 echo "Linking wheat binary to ~/bin..."
 mkdir -p ~/bin
 ln -sf `pwd`/bin/wheat ~/bin/wheat

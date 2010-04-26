@@ -6,7 +6,7 @@ var Wheat = require('wheat');
 var sys = require('sys');
 var path = process.argv[2] || process.cwd();
 var port = 8080;
-var host
+var host;
 if (port = process.argv[3]) {
   if (/^[0-9]+$/.test(port)) {
     port = parseInt(port);
