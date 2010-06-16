@@ -2,18 +2,30 @@
 // This runs a standalone server using the Wheat blogging system.
 // You will need to install it from http://github.com/creationix/wheat
 
-var Wheat = require('wheat');
-var sys = require('sys');
+var Wheat = require('wheat'),
+    Connect = require('connect'),
+    Sys = require('sys');
+
 var path = process.argv[2] || process.cwd();
-var port = 8080;
+var port = process.argv[3] || 8080;
 var host;
-if (port = process.argv[3]) {
+if (typeof port === 'string') {
   if (/^[0-9]+$/.test(port)) {
-    port = parseInt(port);
+    port = parseInt(port, 10);
   }
 }
 if (typeof port === 'number') {
-  host = process.argv[4] || "127.0.0.1";
+  host = process.argv[4];
 }
-sys.error("Starting wheat server using git repo at " + path);
-Wheat(path, port, host);
+
+Connect.createServer([
+  {filter: "response-time"},
+  {filter: "log"},
+  {filter: "conditional-get"},
+  {filter: "cache"},
+  {filter: "gzip"},
+  {module: Wheat, repo: path}
+]).listen(port, host);
+
+Sys.error("Starting wheat server using git repo at " + path);
+Sys.error("http://" + (host || "*") + ":" + port + "/");
