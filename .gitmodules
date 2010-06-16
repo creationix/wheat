@@ -13,3 +13,6 @@
 [submodule "lib/wheat/proto"]
 	path = lib/wheat/proto
 	url = git://github.com/creationix/proto.git
+[submodule "lib/wheat/connectpkg"]
+	path = lib/wheat/connectpkg
+	url = git://github.com/extjs/Connect.git
