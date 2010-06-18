@@ -12,4 +12,4 @@ Clone the repository, and then run the included install script.
 
 That's it!  Checkout the wheat branch of howtonode.org for an example of how to use the library.
 
-<http://github.com/creationix/howtonode.org/tree/wheat>
+<http://github.com/creationix/howtonode.org>
