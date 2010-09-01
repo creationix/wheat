@@ -4,11 +4,10 @@ Wheat is a blogging engine that reads a git repo full of markdown articles and p
 
 ## How to Install
 
-Clone the repository, and then run the included install script.
+Either manually install all the dependencies or use npm.  It's packaged nicely now.
 
-    git clone git://github.com/creationix/wheat.git
-    cd wheat
-    ./install.sh
+    npm install wheat
+
 
 That's it!  Checkout the wheat branch of howtonode.org for an example of how to use the library.
 
