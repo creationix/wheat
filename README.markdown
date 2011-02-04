@@ -8,7 +8,7 @@ Either manually install all the dependencies or use npm.  It's packaged nicely n
 
     npm install wheat
 
-For on the fly rendering of Graphviz graphs (DOT files), Graphviz will need to be [installed][http://www.graphviz.org/Download..php]
+For on the fly rendering of Graphviz graphs (DOT files), Graphviz will need to be [installed](http://www.graphviz.org/Download..php)
 
 That's it!  Checkout the wheat branch of howtonode.org for an example of how to use the library.
 
