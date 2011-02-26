@@ -10,18 +10,18 @@ Wheat engine takes a local git repository path as a parameter
 	
 Here's an example using Connect ( npm install connect ) to start a server, adapted from [howtonode.org repo app.js](https://github.com/creationix/howtonode.org/blob/master/app.js) :
 
- var Connect = require('connect');
- 
- var repository = "/path/to/my/repo";
- 
- Connect.createServer(
-   Connect.logger(),
-   Connect.conditionalGet(),
-   Connect.favicon(),
-   Connect.cache(),
-   Connect.gzip(),
-   require('wheat')(repository)
- ).listen(3000);
+	var Connect = require('connect'); 
+	
+	var repository = "/path/to/my/repo";
+	
+	Connect.createServer(
+		Connect.logger(),
+		Connect.conditionalGet(),
+		Connect.favicon(),
+		Connect.cache(),
+		Connect.gzip(),
+		require('wheat')(repository)
+		).listen(3000);
 
 ## How to Install
 
@@ -37,7 +37,7 @@ For on the fly rendering of Graphviz graphs (DOT files), Graphviz will need to b
 	$> git clone https://github.com/creationix/howtonode.org.git
 	$> cd howtonode.org
 	
-Then edit app.js and add ".listen(3000);" at the end of "Connect.createServer", see above.
+Then edit app.js and add ".listen(3000);" at the end of "Connect.createServer", see above example using connect.
 
 Now just run it, and open your browser on [your host, port 3000](http://127.0.0.1:3000)
 	
