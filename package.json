@@ -12,7 +12,7 @@
   "engines": ["node >= 0.4.0"],
   "main": "lib/wheat.js",
   "dependencies": {
-    "git-fs": ">=0.0.5",
+    "git-fs": ">=0.0.7",
     "simple-mime": ">=0.0.1",
     "haml": ">=0.2.5",
     "step": ">=0.0.3",
