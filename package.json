@@ -2,7 +2,7 @@
   "name": "wheat",
   "description": "Git powered javascript blog.",
   "tags": ["git","node","howtonode","blog"],
-  "version": "0.2.5",
+  "version": "0.2.6",
   "author": "Tim Caswell <tim@creationix.com>",
   "repository": {
     "type": "git",
@@ -12,7 +12,7 @@
   "engines": ["node >= 0.4.0"],
   "main": "lib/wheat.js",
   "dependencies": {
-    "git-fs": ">=0.0.5",
+    "git-fs": ">=0.0.9",
     "simple-mime": ">=0.0.1",
     "haml": ">=0.2.5",
     "step": ">=0.0.3",
