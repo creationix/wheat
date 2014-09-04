@@ -1,0 +1,24 @@
+{
+  "name": "howtonode.org2",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "co": "^3.1.0",
+    "datetime": "0.0.3",
+    "gen-run": "^0.1.2",
+    "haml": "^0.4.3",
+    "js-git": "^0.7.7",
+    "koa": "^0.10.0",
+    "koa-conditional-get": "^1.0.2",
+    "koa-etag": "^2.0.0",
+    "koa-logger": "^1.2.2",
+    "repo-farm": "^1.0.0",
+    "simple-mime": "^0.1.0"
+  }
+}
