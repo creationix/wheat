@@ -2,7 +2,7 @@
   "name": "wheat",
   "version": "2.0.0",
   "description": "",
-  "main": "renderer.js",
+  "main": "renderers.js",
   "author": "Tim Caswell <tim@creationix.com>",
   "license": "MIT",
   "dependencies": {
