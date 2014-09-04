@@ -1,13 +1,10 @@
 {
-  "name": "howtonode.org2",
-  "version": "0.0.0",
+  "name": "wheat",
+  "version": "2.0.0",
   "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
+  "main": "renderer.js",
+  "author": "Tim Caswell <tim@creationix.com>",
+  "license": "MIT",
   "dependencies": {
     "co": "^3.1.0",
     "datetime": "0.0.3",
