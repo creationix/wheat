@@ -1,3 +1,4 @@
+#!/usr/local/bin/node --harmony
 "use strict";
 
 var logger = require('koa-logger');
