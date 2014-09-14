@@ -8,6 +8,7 @@ var datetime = require('datetime');
 var hamlCompile = require('haml');
 var markdownEncoder = require('./markdown');
 var prettify = require('./prettify');
+var spawn = require('child_process').spawn;
 
 module.exports = wheatMiddleware;
 
@@ -194,9 +195,51 @@ function* renderStaticFile(path) {
 
 function* renderDotFile(name) {
   /*jshint validthis:true*/
-  var meta = yield* this.pathToEntry("/");
+  var meta = yield* this.pathToEntry("/articles/" + name);
   if (!meta || !meta.mode) return;
-  this.body = "TODO: render dot file\n";
+  var dot = yield meta.repo.loadAs("blob", meta.hash);
+  this.body = yield function (callback) {
+    var done = false;
+    var child = spawn("dot", ["-Tpng"]);
+    child.stdin.write(dot);
+    child.stdin.end();
+    var stdout = [];
+    var stderr = [];
+    var code, signal;
+    child.stdout.on('data', function (chunk) {
+      stdout.push(chunk);
+    });
+    child.stdout.on('end', function () {
+      callback(null, Buffer.concat(stdout));
+      check();
+    });
+    child.stderr.on("data", function (chunk) {
+      stderr.push(chunk);
+    });
+    child.stderr.on("end", function () {
+      stderr = Buffer.concat(stderr);
+      check();
+    });
+    child.on("error", function (err) {
+      if (done) return;
+      done = true;
+      if (err.code === "ENOENT") err = new Error("Graphviz dot not installed");
+      callback(err);
+    });
+    child.on("exit", function (c, s) {
+      code = c;
+      signal = s;
+      check();
+    });
+    function check() {
+      if (done) return;
+      if (Array.isArray(stdout) || Array.isArray(stderr) || code === undefined) return;
+      done = true;
+      if (code) callback(new Error(stderr + stdout));
+      callback(null, stdout);
+    }
+  };
+  this.type = "image/png";
 }
 
 function* renderCategoryIndex(name) {
