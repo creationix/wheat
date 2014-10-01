@@ -129,7 +129,8 @@ function* renderFeed() {
   var meta = yield* this.pathToEntry("articles");
   if (!meta || !meta.mode) return;
   var articles = yield* loadArticles.call(this, meta);
-  yield* render.call(this, "feed.xml", {
+  var template = yield* loadTemplate.call(this, name);
+  this.body = template({
     articles: articles,
   });
   this.type = "application/rss+xml";
