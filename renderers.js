@@ -76,10 +76,8 @@ function wheatMiddleware(gitUrl, gitRef, cacheDir) {
 
 }
 
-function* renderIndex() {
+function* loadArticles(meta) {
   /*jshint validthis:true*/
-  var meta = yield* this.pathToEntry("articles");
-  if (!meta || !meta.mode) return;
   var tree = yield meta.repo.loadAs("array", meta.hash);
   var articles = [];
   for (var i = 0; i < tree.length; ++i) {
@@ -105,26 +103,36 @@ function* renderIndex() {
     var bd = new Date(b.date);
     return ad < bd ? 1 : bd < ad ? -1 : 0;
   });
+  return articles;
+}
 
+
+function* renderIndex() {
+  /*jshint validthis:true*/
+  var meta = yield* this.pathToEntry("articles");
+  if (!meta || !meta.mode) return;
+  var articles = yield* loadArticles.call(this, meta);
   var description = "";
   meta = yield* this.pathToEntry("description.markdown");
   if (meta && modes.isFile(meta.mode)) {
     description = yield meta.repo.loadAs("text", meta.hash);
   }
-
   yield* render.call(this, "index", {
     articles: articles,
     description: description,
   });
 
-  // this.body = "TODO: render index\n";
 }
 
 function* renderFeed() {
   /*jshint validthis:true*/
-  var meta = yield* this.pathToEntry("/");
+  var meta = yield* this.pathToEntry("articles");
   if (!meta || !meta.mode) return;
-  this.body = "TODO: render feed\n";
+  var articles = yield* loadArticles.call(this, meta);
+  yield* render.call(this, "feed.xml", {
+    articles: articles,
+  });
+  this.type = "application/rss+xml";
 }
 
 function* renderArticle(name) {
