@@ -142,14 +142,12 @@ function* renderArticle(name) {
   if (!meta || !meta.mode) return;
   var markdown = yield meta.repo.loadAs("text", meta.hash);
   var article = preProcessMarkdown(markdown);
-  console.log(article);
 
   meta = yield* this.pathToEntry("authors/" + article.author + ".markdown");
   markdown = yield meta.repo.loadAs("text", meta.hash);
   var author = preProcessMarkdown(markdown);
   author.name = article.author;
   article.author = author;
-  console.log(author);
 
   var snippets = article.snippets;
 
