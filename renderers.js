@@ -147,6 +147,7 @@ function* renderArticle(name) {
   markdown = yield meta.repo.loadAs("text", meta.hash);
   var author = preProcessMarkdown(markdown);
   author.name = article.author;
+  article.name = name;
   article.author = author;
 
   var snippets = article.snippets;
