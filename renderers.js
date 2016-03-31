@@ -300,7 +300,7 @@ var helpers = {
     size = size || 200;
     var hash = crypto.createHash('md5');
     hash.update((email + "").trim().toLowerCase());
-    return "http://www.gravatar.com/avatar/" +
+    return "https://www.gravatar.com/avatar/" +
       hash.digest('hex') +
       "?r=pg&s=" + size + ".jpg&d=identicon";
   },

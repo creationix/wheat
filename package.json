@@ -1,6 +1,6 @@
 {
   "name": "wheat",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "",
   "main": "renderers.js",
   "author": "Tim Caswell <tim@creationix.com>",
