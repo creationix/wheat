@@ -3,6 +3,7 @@
   "version": "2.0.1",
   "description": "",
   "main": "renderers.js",
+  "scripts": { "start": "node server.js" },
   "author": "Tim Caswell <tim@creationix.com>",
   "license": "MIT",
   "dependencies": {
